@@ -52,13 +52,34 @@ def extract_rows_from_table(table_string):
         table_string = table_string[row_end_idx  + len("</tr>") : ]
         #print("row:" + row_str)
         x, y, z = extract_data_from_row(row_str)
-        print("data:" + str(x) +":" + str(y) + ":" + str(z) )
+        #print("data:" + str(x) +":" + str(y) + ":" + str(z) )
         data_tuples.append((x ,y, z)) #append the data to list
         row_end_idx = table_string.find("</tr>")  
     return data_tuples
     
+def find_largest_x(tuple_list):
+    largest = 0
+    for item in tuple_list:
+        int_item = int(item[0]) 
+        if largest < int_item:
+            largest = int_item
     
- 
+    return largest
+
+def find_largest_y(tuple_list):
+    largest = 0
+    for item in tuple_list:
+        int_item = int(item[2]) 
+        if largest < int_item:
+            largest = int_item
+    
+    return largest
+    
+    
+def build_string_from_list( tuple_list ):
+    build_string = ""
+    
+    return build_string
 
 
 
@@ -79,7 +100,7 @@ and then removing it
 """
 header_end_idx = response_str.find("</tr>")
 response_str = response_str[header_end_idx + len("</tr>") : len(response_str) ]
-print(response_str)
+#print(response_str)
 """
 row_end_idx = response_str.find("</tr>")
 row_str = response_str[: row_end_idx + len("</tr>")  ]
@@ -105,8 +126,11 @@ while row_end_idx != -1:
         
     row_end_idx = response_str.find("</tr>")  
 """
-extract_rows_from_table(response_str)
-    
+data_list = extract_rows_from_table(response_str)
+largest_x = find_largest_x(data_list)
+largest_y = find_largest_y(data_list)
+print(str(largest_x))   
+print(str(largest_y)) 
     
 
     
