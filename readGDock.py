@@ -15,6 +15,21 @@ import requests as rq
 short_doc = "https://docs.google.com/document/d/e/2PACX-1vRMx5YQlZNa3ra8dYYxmv-QIQ3YJe8tbI3kqcuC7lQiZm-CSEznKfN_HYNSpoXcZIV3Y_O3YoUB1ecq/pub"
 long_doc = "https://docs.google.com/document/d/e/2PACX-1vQGUck9HIFCyezsrBSnmENk5ieJuYwpt7YHYEzeNJkIb9OSDdx-ov2nRNReKQyey-cwJOoEKUhLmN9z/pub"
 
+
+def extract_data(input_string ):
+    val_idx = input_string.find("</span>")
+    col1_val = input_string[val_idx -1 : val_idx]
+    print("col val:" + col1_val )
+    return col1_val
+
+
+
+
+
+
+
+
+
 response = rq.get(short_doc)
 response_str = str(response.content, 'UTF-8') 
 #print(response.content)
@@ -50,7 +65,14 @@ while row_end_idx != -1:
         col_str = row_str[ : col_end_idx + len("</td>")]
         row_str = row_str[col_end_idx + len("</td>") : ]
         print("col:" + col_str)
+        extract_data(col_str)
         col_end_idx = row_str.find("</td>")
         
     row_end_idx = response_str.find("</tr>")  
+    
+    
+
+    
+    
+    
     
