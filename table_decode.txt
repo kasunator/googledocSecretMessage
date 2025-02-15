@@ -1,0 +1,40 @@
+<div class="c5 doc-content"><p class="c1"><span class="c2">This is an example document showing the format of the input data for the coding assessment exercise.</span></p>
+<p class="c1 c4"><span class="c2"></span></p><table class="c6"><tr class="c3">
+
+<td class="c0" colspan="1" rowspan="1"><p class="c1"><span class="c2">x-coordinate</span></p></td>
+<td class="c0" colspan="1" rowspan="1"><p class="c1"><span class="c2">Character</span></p></td>
+<td class="c0" colspan="1" rowspan="1"><p class="c1"><span class="c2">y-coordinate</span></p></td></tr>
+
+<tr class="c3"><td class="c0" colspan="1" rowspan="1"><p class="c1"><span class="c2">0</span></p></td>
+<td class="c0" colspan="1" rowspan="1"><p class="c1"><span class="c2">█</span></p></td>
+<td class="c0" colspan="1" rowspan="1"><p class="c1"><span class="c2">0</span></p></td></tr>
+
+<tr class="c3"><td class="c0" colspan="1" rowspan="1"><p class="c1"><span class="c2">0</span></p></td>
+<td class="c0" colspan="1" rowspan="1"><p class="c1"><span class="c2">█</span></p></td>
+<td class="c0" colspan="1" rowspan="1"><p class="c1"><span class="c2">1</span></p></td></tr>
+
+<tr class="c3"><td class="c0" colspan="1" rowspan="1"><p class="c1"><span class="c2">0</span></p></td>
+<td class="c0" colspan="1" rowspan="1"><p class="c1"><span class="c2">█</span></p></td>
+<td class="c0" colspan="1" rowspan="1"><p class="c1"><span class="c2">2</span></p></td></tr>
+
+<tr class="c3"><td class="c0" colspan="1" rowspan="1"><p class="c1"><span class="c2">1</span></p></td>
+<td class="c0" colspan="1" rowspan="1"><p class="c1"><span class="c2">▀</span></p></td>
+<td class="c0" colspan="1" rowspan="1"><p class="c1"><span class="c2">1</span></p></td></tr>
+
+
+<tr class="c3"><td class="c0" colspan="1" rowspan="1"><p class="c1"><span class="c2">1</span></p></td>
+<td class="c0" colspan="1" rowspan="1"><p class="c1"><span class="c2">▀</span></p></td>
+<td class="c0" colspan="1" rowspan="1"><p class="c1"><span class="c2">2</span></p></td></tr>
+
+
+<tr class="c3"><td class="c0" colspan="1" rowspan="1"><p class="c1"><span class="c2">2</span></p></td>
+<td class="c0" colspan="1" rowspan="1"><p class="c1"><span class="c2">▀</span></p></td>
+<td class="c0" colspan="1" rowspan="1"><p class="c1"><span class="c2">1</span></p></td></tr>
+
+<tr class="c3"><td class="c0" colspan="1" rowspan="1"><p class="c1"><span class="c2">2</span></p></td>
+<td class="c0" colspan="1" rowspan="1"><p class="c1"><span class="c2">▀</span></p></td>
+<td class="c0" colspan="1" rowspan="1"><p class="c1"><span class="c2">2</span></p></td></tr>
+
+<tr class="c3"><td class="c0" colspan="1" rowspan="1"><p class="c1"><span class="c2">3</span></p></td>
+<td class="c0" colspan="1" rowspan="1"><p class="c1"><span class="c2">▀</span></p></td>
+<td class="c0" colspan="1" rowspan="1"><p class="c1"><span class="c2">2</span></p></td></tr></table>
