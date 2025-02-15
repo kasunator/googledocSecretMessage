@@ -8,7 +8,7 @@ Created on Sat Feb 15 13:37:46 2025
 
 </tr> marks endof row
 </td> marks end of column 
-
+</span> is the delimeter just after data from each column
 """
 import requests as rq
 
@@ -32,4 +32,25 @@ and then removing it
 """
 header_end_idx = response_str.find("</tr>")
 response_str = response_str[header_end_idx + len("</tr>") : len(response_str) ]
-print(response_str)
+#print(response_str)
+"""
+row_end_idx = response_str.find("</tr>")
+row_str = response_str[: row_end_idx + len("</tr>")  ]
+print(row_str)
+response_str = response_str[row_end_idx  + len("</tr>"): ]
+print(response_str) """
+
+row_end_idx = response_str.find("</tr>")
+while row_end_idx != -1:
+    row_str = response_str[: row_end_idx + len("</tr>") ]
+    response_str = response_str[row_end_idx  + len("</tr>") : ]
+    print("row:" + row_str)
+    col_end_idx = response_str.find("</td>")
+    while col_end_idx != -1:
+        col_str = row_str[ : col_end_idx + len("</td>")]
+        row_str = row_str[col_end_idx + len("</td>") : ]
+        print("col:" + col_str)
+        col_end_idx = row_str.find("</td>")
+        
+    row_end_idx = response_str.find("</tr>")  
+    
