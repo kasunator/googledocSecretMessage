@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sat Feb 15 13:37:46 2025
-
 @author: KBeddewela
 <table ..  marks the start of table
 </table> marks end of table, 8 bytes long
