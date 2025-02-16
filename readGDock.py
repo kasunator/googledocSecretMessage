@@ -9,6 +9,14 @@ Created on Sat Feb 15 13:37:46 2025
 </tr> marks endof row
 </td> marks end of column 
 </span> is the delimeter just after data from each column
+
+
+by oberving the given output and the example table
+we can see that
+ x goes from left to right 
+ y goes from bottom to top
+ 
+i.e. the (0,0) orgin is at the bottom left of the console/screen
 """
 import requests as rq
 
@@ -74,12 +82,27 @@ def find_largest_y(tuple_list):
             largest = int_item
     
     return largest
-    
-    
-def build_string_from_list( tuple_list ):
-    build_string = ""
-    
-    return build_string
+
+def check_if_table_has_entry(tuple_list, x , y):
+    for item in tuple_list:
+        if int(item[2]) == y and int(item[0]) == x:
+            entry = item[1]
+            #print("match : " + str(x) +":"+ str(y) + ":" + item[1])
+            return entry
+    return " "
+  
+  
+def build_string_from_list( tuple_list , largest_x , largest_y):
+    #build_string = ""
+    line_string = ""
+    for j in range(largest_y, -1, -1 ):
+        for i in range(largest_x + 1):
+            line_string +=check_if_table_has_entry(tuple_list, i, j)
+        line_string += "\n" #insert \n every end of i, i.e. x line
+
+        #print(line_string)
+        
+    return line_string
 
 
 
@@ -129,9 +152,10 @@ while row_end_idx != -1:
 data_list = extract_rows_from_table(response_str)
 largest_x = find_largest_x(data_list)
 largest_y = find_largest_y(data_list)
-print(str(largest_x))   
-print(str(largest_y)) 
-    
+#print(str(largest_x))   
+#print(str(largest_y)) 
+output = build_string_from_list(data_list, largest_x, largest_y)
+print(output)
 
     
     
