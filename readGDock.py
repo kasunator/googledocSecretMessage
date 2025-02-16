@@ -25,10 +25,12 @@ long_doc = "https://docs.google.com/document/d/e/2PACX-1vQGUck9HIFCyezsrBSnmENk5
 
 
 def extract_data(input_string ):
-    val_idx = input_string.find("</span>")
-    col1_val = input_string[val_idx -1 : val_idx]
-    #print("col val:" + col1_val )
-    return col1_val
+    val_end_idx = input_string.find("</span>")
+    input_string = input_string[ : val_end_idx]
+    val_start_idx = input_string.rfind(">")
+    col_val = input_string[val_start_idx+1:]
+    #print("col val:" + col_val )
+    return col_val
 
 
 def extract_data_from_row(row_string):
@@ -60,7 +62,7 @@ def extract_rows_from_table(table_string):
         table_string = table_string[row_end_idx  + len("</tr>") : ]
         #print("row:" + row_str)
         x, y, z = extract_data_from_row(row_str)
-        print("data:" + str(x) +":" + str(y) + ":" + str(z) )
+        #print("data:" + str(x) +":" + str(y) + ":" + str(z) )
         data_tuples.append((x ,y, z)) #append the data to list
         row_end_idx = table_string.find("</tr>")  
     return data_tuples
