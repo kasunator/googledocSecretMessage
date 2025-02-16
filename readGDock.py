@@ -60,7 +60,7 @@ def extract_rows_from_table(table_string):
         table_string = table_string[row_end_idx  + len("</tr>") : ]
         #print("row:" + row_str)
         x, y, z = extract_data_from_row(row_str)
-        #print("data:" + str(x) +":" + str(y) + ":" + str(z) )
+        print("data:" + str(x) +":" + str(y) + ":" + str(z) )
         data_tuples.append((x ,y, z)) #append the data to list
         row_end_idx = table_string.find("</tr>")  
     return data_tuples
@@ -105,57 +105,62 @@ def build_string_from_list( tuple_list , largest_x , largest_y):
     return line_string
 
 
+def print_secret_message(doc_URL):
 
-response = rq.get(short_doc)
-response_str = str(response.content, 'UTF-8') 
-#print(response.content)
-#print(type(response_str))
-""" starting and end of the table is marked by <table  .. </table>"""
-start_index_table = response_str.find("<table")
-end_index_table = response_str.find("</table>")
-#print(start_index_table)
-#print(end_index_table)
-response_str = response_str[start_index_table: end_index_table + 8 ] # i.e </table> is 9 bytes long
-#print(response_str)
-
-""" Now lets remove the table header , by finding the first row which is the header
-and then removing it
-"""
-header_end_idx = response_str.find("</tr>")
-response_str = response_str[header_end_idx + len("</tr>") : len(response_str) ]
-#print(response_str)
-"""
-row_end_idx = response_str.find("</tr>")
-row_str = response_str[: row_end_idx + len("</tr>")  ]
-print(row_str)
-response_str = response_str[row_end_idx  + len("</tr>"): ]
-print(response_str) """
-
-
-"""
-row_end_idx = response_str.find("</tr>")
-while row_end_idx != -1:
-    row_str = response_str[: row_end_idx + len("</tr>") ]
-    response_str = response_str[row_end_idx  + len("</tr>") : ]
-    print("row:" + row_str)
-    #col_end_idx = response_str.find("</td>")
-    col_end_idx = row_str.find("</td>")
-    while col_end_idx != -1:
-        col_str = row_str[ : col_end_idx + len("</td>")]
-        row_str = row_str[col_end_idx + len("</td>") : ]
-        print("col:" + col_str)
-        extract_data(col_str)
+    response = rq.get(doc_URL)
+    response_str = str(response.content, 'UTF-8') 
+    #print(response.content)
+    #print(type(response_str))
+    """ starting and end of the table is marked by <table  .. </table>"""
+    start_index_table = response_str.find("<table")
+    end_index_table = response_str.find("</table>")
+    #print(start_index_table)
+    #print(end_index_table)
+    response_str = response_str[start_index_table: end_index_table + 8 ] # i.e </table> is 9 bytes long
+    #print(response_str)
+    
+    """ Now lets remove the table header , by finding the first row which is the header
+    and then removing it
+    """
+    header_end_idx = response_str.find("</tr>")
+    response_str = response_str[header_end_idx + len("</tr>") : len(response_str) ]
+    #print(response_str)
+    """
+    row_end_idx = response_str.find("</tr>")
+    row_str = response_str[: row_end_idx + len("</tr>")  ]
+    print(row_str)
+    response_str = response_str[row_end_idx  + len("</tr>"): ]
+    print(response_str) """
+    
+    
+    """
+    row_end_idx = response_str.find("</tr>")
+    while row_end_idx != -1:
+        row_str = response_str[: row_end_idx + len("</tr>") ]
+        response_str = response_str[row_end_idx  + len("</tr>") : ]
+        print("row:" + row_str)
+        #col_end_idx = response_str.find("</td>")
         col_end_idx = row_str.find("</td>")
-        
-    row_end_idx = response_str.find("</tr>")  
-"""
-data_list = extract_rows_from_table(response_str)
-largest_x = find_largest_x(data_list)
-largest_y = find_largest_y(data_list)
-#print(str(largest_x))   
-#print(str(largest_y)) 
-output = build_string_from_list(data_list, largest_x, largest_y)
-print(output)
+        while col_end_idx != -1:
+            col_str = row_str[ : col_end_idx + len("</td>")]
+            row_str = row_str[col_end_idx + len("</td>") : ]
+            print("col:" + col_str)
+            extract_data(col_str)
+            col_end_idx = row_str.find("</td>")
+            
+        row_end_idx = response_str.find("</tr>")  
+    """
+    data_list = extract_rows_from_table(response_str)
+    largest_x = find_largest_x(data_list)
+    largest_y = find_largest_y(data_list)
+    #print(str(largest_x))   
+    #print(str(largest_y)) 
+    output = build_string_from_list(data_list, largest_x, largest_y)
+    print(output)
+
+print_secret_message(long_doc)
+
+
 
     
     
